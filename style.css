@@ -1,0 +1,113 @@
+body {
+  padding: 20px;
+  background-color: #0b0f0a; /* velmi tmavě zeleno-černá */
+  color: #00ff88;
+  font-family: "Consolas", monospace;
+}
+
+#gridContainer {
+  padding-bottom: 10px;
+}
+
+table {
+  background-color: #0f1a0f; /* tmavá zelená */
+  border-spacing: 1px;
+  box-shadow: 0 0 15px #00ff88aa; /* neon efekt */
+}
+
+td {
+  border: 1px solid #004d26;
+  width: 20px;
+  height: 20px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+td.dead {
+  background-color: #001a0c; /* temná */
+}
+
+/* bonus hover efekt */
+td:hover {
+  background-color: #008834;
+  box-shadow: 0 0 10px #00ff88;
+  cursor: pointer;
+}
+
+td.live {
+  background-color: #00ff55;
+  box-shadow: 0 0 6px #00ff55;
+  animation: cellBirth 0.25s ease-out;
+}
+
+@keyframes cellBirth {
+  0% {
+    background-color: #003d1d;
+    box-shadow: 0 0 0px #00ff55;
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.15);
+    box-shadow: 0 0 10px #00ff55;
+  }
+  100% {
+    transform: scale(1);
+    background-color: #00ff55;
+    box-shadow: 0 0 6px #00ff55;
+  }
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #001a0c;      /* temná */
+  border: 2px solid #00ff88;      /* neon okraj */
+  border-radius: 6px;
+  color: #00ff88;
+  font-family: "Consolas", monospace;
+  font-size: 16px;
+  cursor: pointer;
+
+  transition: 
+    background-color .25s ease, 
+    border-color .25s ease, 
+    box-shadow .25s ease,
+    transform .2s ease;
+}
+
+/* hover efekt */
+button:hover {
+  background-color: #00ff55;
+  color: #001a0c;
+  border-color: #00ff55;
+  box-shadow: 0 0 15px #00ff55;
+  transform: translateY(-2px);
+}
+
+/* aktivní kliknutí */
+button:active {
+  transform: translateY(1px) scale(0.95);
+  box-shadow: 0 0 5px #00ff55;
+}
+
+/* volitelná animace "pulse" */
+button.pulse {
+  animation: pulseBtn 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseBtn {
+  0% { box-shadow: 0 0 4px #00ff88; }
+  50% { box-shadow: 0 0 18px #00ff88; }
+ 100% { box-shadow: 0 0 4px #00ff88; }
+}
+
+.controls {
+  margin-top: 15px;
+  text-align: center;
+}
+
+#stats {
+  text-align: center;
+  margin-top: 10px;
+  color: #00ff88;
+  font-size: 18px;
+}
